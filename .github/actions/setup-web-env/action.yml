@@ -1,0 +1,83 @@
+name: Setup Web Environment
+description: Prepare Rust, emsdk and Node.js for web and Tauri CI jobs.
+
+inputs:
+  node-version:
+    description: Node.js version to install.
+    required: false
+    default: "22"
+  rust-target:
+    description: Additional Rust target needed by the web build.
+    required: false
+    default: wasm32-unknown-emscripten
+  install-playwright:
+    description: Install Playwright browsers and OS dependencies.
+    required: false
+    default: "false"
+  install-tauri-linux-deps:
+    description: Install Linux system packages required by Tauri builds.
+    required: false
+    default: "false"
+
+runs:
+  using: composite
+  steps:
+    - name: Install Rust toolchain
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        cache: false
+        rustflags: ""
+        target: ${{ inputs.rust-target }}
+
+    - name: Configure git to use HTTPS instead of SSH
+      shell: bash
+      run: |
+        git config --global url."https://github.com/".insteadOf "git@github.com:"
+        git config --global --add url."https://github.com/".insteadOf "ssh://git@github.com/"
+
+    - name: Cache Rust artifacts
+      uses: Swatinem/rust-cache@v2
+      with:
+        workspaces: |
+          . -> target
+          web/src-tauri -> web/src-tauri/target
+
+    - name: Setup emsdk
+      uses: pyodide/setup-emsdk@v15
+      with:
+        version: 5.0.0
+        actions-cache-folder: emsdk-cache
+
+    - name: Install Tauri Linux dependencies
+      if: runner.os == 'Linux' && inputs.install-tauri-linux-deps == 'true'
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libwebkit2gtk-4.1-dev \
+          build-essential \
+          curl \
+          wget \
+          file \
+          libxdo-dev \
+          libssl-dev \
+          libayatana-appindicator3-dev \
+          librsvg2-dev
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+        cache-dependency-path: web/package-lock.json
+
+    - name: Install web dependencies
+      shell: bash
+      working-directory: web
+      run: npm ci
+
+    - name: Install Playwright browsers
+      if: inputs.install-playwright == 'true'
+      shell: bash
+      working-directory: web
+      run: npx playwright install --with-deps chromium webkit
