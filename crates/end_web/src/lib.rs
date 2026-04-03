@@ -6,9 +6,9 @@ mod lang;
 
 pub use api::{bootstrap, solve_from_aic_toml};
 pub use dto::{
-    BootstrapPayload, CatalogDto, CatalogItemDto, ExternalSupplySlackDto, FacilityUsageDto,
-    LogisticsEdgeDto, LogisticsGraphDto, LogisticsItemSummaryDto, LogisticsNodeDto,
-    OutpostValueDto, PowerSummaryDto, SaleValueDto, SolvePayload, SummaryDto,
+    BootstrapPayload, CatalogDto, CatalogFacilityDto, CatalogItemDto, ExternalSupplySlackDto,
+    FacilityUsageDto, LogisticsEdgeDto, LogisticsGraphDto, LogisticsItemSummaryDto,
+    LogisticsNodeDto, OutpostValueDto, PowerSummaryDto, SaleValueDto, SolvePayload, SummaryDto,
 };
 pub use error::{Error, Result};
 pub use ffi::{end_web_bootstrap, end_web_free_slice, end_web_solve_from_aic_toml};
@@ -29,6 +29,10 @@ mod tests {
         assert!(
             !payload.catalog.items.is_empty(),
             "catalog items should not be empty"
+        );
+        assert!(
+            !payload.catalog.facilities.is_empty(),
+            "catalog facilities should not be empty"
         );
     }
 

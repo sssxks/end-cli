@@ -1,8 +1,8 @@
 #![allow(clippy::unwrap_used, clippy::expect_used)]
 
 use end_model::{
-    AicInputs, Catalog, DisplayName, FacilityDef, FacilityRegions, ItemDef, Key, OutpostInput,
-    PosF64, PowerConfig, Region, Stack, Stage2Weights, ThermalBankDef,
+    AicInputs, Catalog, DisplayName, FacilityDef, FacilityRegions, FacilityU32Map, ItemDef, Key,
+    OutpostInput, PosF64, PowerConfig, Region, Stack, Stage2Weights, ThermalBankDef,
 };
 use end_opt::{Error, NEAR_INT_EPS, run_two_stage};
 use generativity::Guard;
@@ -267,6 +267,101 @@ fn run_two_stage_allows_empty_recipes_with_direct_external_sales() {
     assert!(
         !result.stage1.outpost_sales_qty.is_empty(),
         "stage1 should report non-empty direct sales qty"
+    );
+}
+
+#[test]
+fn run_two_stage_respects_facility_machines_max_constraint() {
+    make_guard!(guard);
+    let mut b = Catalog::builder(guard);
+    let ore = b
+        .add_item(ItemDef {
+            key: key("Ore"),
+            en: name("Ore"),
+            zh: name("Ore_zh"),
+            is_fluid: false,
+        })
+        .expect("add ore");
+    let ingot = b
+        .add_item(ItemDef {
+            key: key("Ingot"),
+            en: name("Ingot"),
+            zh: name("Ingot_zh"),
+            is_fluid: false,
+        })
+        .expect("add ingot");
+
+    let smelter = b
+        .add_facility(FacilityDef {
+            key: key("Smelter"),
+            power_w: nz(10),
+            en: name("Smelter"),
+            zh: name("Smelter_zh"),
+            regions: FacilityRegions::All,
+        })
+        .expect("add machine");
+
+    let mut b = b
+        .add_thermal_bank(ThermalBankDef {
+            key: key("Thermal Bank"),
+            en: name("Thermal Bank"),
+            zh: name("Thermal_Bank_zh"),
+        })
+        .expect("add thermal bank");
+
+    b.push_recipe(
+        smelter,
+        nz(60),
+        vec![Stack {
+            item: ore,
+            count: nz(1),
+        }]
+        .into(),
+        vec![Stack {
+            item: ingot,
+            count: nz(1),
+        }]
+        .into(),
+    )
+    .expect("push recipe");
+
+    let catalog = b.build();
+
+    make_guard!(aic_guard);
+    let facility_machines_max: FacilityU32Map<'_> = vec![(smelter, 1)].into();
+    let mut aic_builder = AicInputs::builder(
+        aic_guard,
+        PowerConfig::default(),
+        vec![(ore, PosF64::new(10.0).expect("positive"))].into(),
+        Default::default(),
+    )
+    .facility_machines_max(facility_machines_max);
+    aic_builder
+        .add_outpost(OutpostInput {
+            key: key("Camp"),
+            en: Some(name("Camp")),
+            zh: Some(name("Camp_zh")),
+            money_cap_per_hour: 600,
+            prices: vec![(ingot, 5)].into(),
+        })
+        .expect("valid aic outpost");
+    let aic = aic_builder.build();
+
+    make_guard!(result_guard);
+    let result = run_two_stage(&catalog, &aic, result_guard).expect("solve sample model");
+
+    assert_eq!(
+        result.stage1.total_machines, 1,
+        "stage1 should respect facility machine cap"
+    );
+    assert_eq!(
+        result.stage2.total_machines, 1,
+        "stage2 should respect facility machine cap"
+    );
+    assert!(
+        (result.stage1.revenue_per_min - 5.0).abs() <= 1e-9,
+        "stage1 revenue should be capped at 1 ingot/min by facility cap, got {}",
+        result.stage1.revenue_per_min
     );
 }
 

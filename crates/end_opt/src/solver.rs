@@ -480,6 +480,18 @@ fn solve_stage<'cid, 'sid>(
         model.with(constraint!(rv.x <= rv.throughput_per_min * rv.y))
     });
 
+    model = aic
+        .facility_machines_max()
+        .iter()
+        .fold(model, |model, (facility, max_machines)| {
+            let facility_machines: Expression = recipe_vars
+                .iter()
+                .filter(|rv| rv.facility == facility)
+                .map(|rv| rv.y)
+                .sum();
+            model.with(constraint!(facility_machines <= max_machines as f64))
+        });
+
     // Apply item balance constraints:
     // - For fluids: equality (must be exactly 0, no storage allowed)
     // - For non-fluids: inequality (>= 0, surplus can go to warehouse)

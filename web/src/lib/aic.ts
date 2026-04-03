@@ -28,6 +28,18 @@ function parseItemFlowRows(map: Record<string, unknown>): { itemKey: string; val
     .sort((a, b) => a.itemKey.localeCompare(b.itemKey));
 }
 
+function parseFacilityMachineMaxRows(
+  map: Record<string, unknown>
+): { facilityKey: string; value: number }[] {
+  return Object.entries(map)
+    .map(([facilityKey, value]) => ({
+      facilityKey,
+      value: asInt(value)
+    }))
+    .filter((row) => row.facilityKey.trim().length > 0)
+    .sort((a, b) => a.facilityKey.localeCompare(b.facilityKey));
+}
+
 function parsePrices(map: Record<string, unknown>): PriceRow[] {
   return Object.entries(map)
     .map(([itemKey, value]) => ({
@@ -143,6 +155,12 @@ function cleanDraft(draft: AicDraft): AicDraft {
         itemKey: row.itemKey.trim(),
         value: asNonNegativeNumber(row.value, 0),
       })),
+    facilityMachinesMax: draft.facilityMachinesMax
+      .filter((row) => row.facilityKey.trim().length > 0)
+      .map((row) => ({
+        facilityKey: row.facilityKey.trim(),
+        value: asInt(row.value),
+      })),
     outposts: draft.outposts
       .filter((outpost) => outpost.key.trim().length > 0)
       .map((outpost) => ({
@@ -164,6 +182,7 @@ export function parseAicToml(tomlText: string): AicDraft {
     objective: parseObjective(parsed.objective, parsed.stage2),
     supply: parseItemFlowRows(asRecord(parsed.supply_per_min)),
     consumption: parseItemFlowRows(asRecord(parsed.external_consumption_per_min)),
+    facilityMachinesMax: parseFacilityMachineMaxRows(asRecord(parsed.facility_machines_max)),
     outposts: Array.isArray(parsed.outposts) ? parsed.outposts.map(parseOutpost) : []
   });
 }
@@ -180,6 +199,10 @@ export function buildAicToml(draft: AicDraft): string {
     cleaned.consumption
       .filter((row) => row.value > 0)
       .map((row) => [row.itemKey, asNonNegativeNumber(row.value, 0)])
+  );
+
+  const facilityMachinesMax = Object.fromEntries(
+    cleaned.facilityMachinesMax.map((row) => [row.facilityKey, asInt(row.value)])
   );
 
   const outposts = cleaned.outposts.map((outpost) => {
@@ -223,11 +246,16 @@ export function buildAicToml(draft: AicDraft): string {
     power,
     supply_per_min: supplyPerMin,
     external_consumption_per_min: externalConsumptionPerMin,
+    facility_machines_max: facilityMachinesMax,
     outposts
   };
 
   if (Object.keys(objective).length > 0) {
     root.objective = objective;
+  }
+
+  if (Object.keys(facilityMachinesMax).length === 0) {
+    delete root.facility_machines_max;
   }
 
   return stringifyToml(root);

@@ -9,9 +9,9 @@ use end_opt::run_two_stage;
 use generativity::make_guard;
 
 use crate::dto::{
-    BootstrapPayload, CatalogDto, CatalogItemDto, ExternalSupplySlackDto, FacilityUsageDto,
-    LogisticsEdgeDto, LogisticsGraphDto, LogisticsItemSummaryDto, LogisticsNodeDto,
-    OutpostValueDto, PowerSummaryDto, SaleValueDto, SolvePayload, SummaryDto,
+    BootstrapPayload, CatalogDto, CatalogFacilityDto, CatalogItemDto, ExternalSupplySlackDto,
+    FacilityUsageDto, LogisticsEdgeDto, LogisticsGraphDto, LogisticsItemSummaryDto,
+    LogisticsNodeDto, OutpostValueDto, PowerSummaryDto, SaleValueDto, SolvePayload, SummaryDto,
 };
 use crate::{Error, Lang, Result};
 
@@ -30,6 +30,17 @@ pub fn bootstrap(lang: Lang) -> Result<BootstrapPayload> {
         .collect::<Vec<_>>();
     items.sort_by(|lhs, rhs| lhs.key.cmp(&rhs.key));
 
+    let mut facilities = catalog
+        .facilities()
+        .iter()
+        .map(|facility| CatalogFacilityDto {
+            key: facility.key.as_str().into(),
+            en: facility.en.as_str().into(),
+            zh: facility.zh.as_str().into(),
+        })
+        .collect::<Vec<_>>();
+    facilities.sort_by(|lhs, rhs| lhs.key.cmp(&rhs.key));
+
     // `lang` is currently not used by bootstrap payload fields, but keeping it in signature
     // makes the frontend contract symmetric with solve API and future localization extensions.
     let _ = lang;
@@ -37,6 +48,7 @@ pub fn bootstrap(lang: Lang) -> Result<BootstrapPayload> {
     Ok(BootstrapPayload {
         catalog: CatalogDto {
             items: items.into_boxed_slice(),
+            facilities: facilities.into_boxed_slice(),
         },
     })
 }

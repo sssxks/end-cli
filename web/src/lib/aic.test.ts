@@ -24,6 +24,10 @@ describe('aic toml conversions', () => {
         { itemKey: 'IronOre', value: 15 },
         { itemKey: 'Water', value: 8 }
       ],
+      facilityMachinesMax: [
+        { facilityKey: 'Smelter', value: 0 },
+        { facilityKey: 'Assembler', value: 12 }
+      ],
       outposts: [
         {
           key: 'Refugee_Camp',
@@ -48,6 +52,7 @@ describe('aic toml conversions', () => {
     expect(parsed.objective.maxMoneySlack).toBe(0.5);
     expect(parsed.supply).toHaveLength(2);
     expect(parsed.consumption).toHaveLength(2);
+    expect(parsed.facilityMachinesMax).toHaveLength(2);
     expect(parsed.outposts).toHaveLength(1);
     expect(parsed.outposts[0]?.key).toBe('Refugee_Camp');
     expect(parsed.outposts[0]?.name).toBe('Refugee Camp');
@@ -72,6 +77,7 @@ describe('aic toml conversions', () => {
         { itemKey: 'CopperOre', value: 0.25 }
       ],
       consumption: [{ itemKey: 'Water', value: 2.75 }],
+      facilityMachinesMax: [],
       outposts: []
     };
 
@@ -147,6 +153,7 @@ money_cap_per_hour = 100
       },
       supply: [],
       consumption: [],
+      facilityMachinesMax: [],
       outposts: []
     };
 

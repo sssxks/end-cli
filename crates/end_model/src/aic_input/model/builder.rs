@@ -3,8 +3,8 @@ use std::collections::HashSet;
 use generativity::Guard;
 
 use super::{
-    AicBuildError, AicInputs, ItemPosF64Map, OutpostId, OutpostInput, PowerConfig, Region,
-    Stage2Weights,
+    AicBuildError, AicInputs, FacilityU32Map, ItemPosF64Map, OutpostId, OutpostInput, PowerConfig,
+    Region, Stage2Weights,
 };
 
 #[derive(Debug)]
@@ -12,6 +12,7 @@ pub struct AicInputsBuilder<'cid, 'sid> {
     region: Region,
     supply_per_min: ItemPosF64Map<'cid>,
     external_consumption_per_min: ItemPosF64Map<'cid>,
+    facility_machines_max: FacilityU32Map<'cid>,
     outposts: Vec<OutpostInput<'cid>>,
     outpost_keys: HashSet<crate::Key>,
     power_config: PowerConfig,
@@ -30,6 +31,7 @@ impl<'cid, 'sid> AicInputs<'cid, 'sid> {
             region: Region::FourthValley,
             supply_per_min,
             external_consumption_per_min,
+            facility_machines_max: FacilityU32Map::default(),
             outposts: Vec::new(),
             outpost_keys: HashSet::new(),
             power_config,
@@ -42,6 +44,11 @@ impl<'cid, 'sid> AicInputs<'cid, 'sid> {
 impl<'cid, 'sid> AicInputsBuilder<'cid, 'sid> {
     pub fn region(mut self, region: Region) -> Self {
         self.region = region;
+        self
+    }
+
+    pub fn facility_machines_max(mut self, facility_machines_max: FacilityU32Map<'cid>) -> Self {
+        self.facility_machines_max = facility_machines_max;
         self
     }
 
@@ -68,6 +75,7 @@ impl<'cid, 'sid> AicInputsBuilder<'cid, 'sid> {
             region,
             supply_per_min,
             external_consumption_per_min,
+            facility_machines_max,
             outposts,
             outpost_keys: _,
             power_config,
@@ -79,6 +87,7 @@ impl<'cid, 'sid> AicInputsBuilder<'cid, 'sid> {
             region,
             supply_per_min,
             external_consumption_per_min,
+            facility_machines_max,
             outposts: outposts.into_boxed_slice(),
             power_config,
             stage2_weights,

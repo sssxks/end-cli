@@ -1,15 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import {
   addConsumptionRow,
+  addFacilityMachinesMaxRow,
   addOutpost,
   addPriceRow,
   addSupplyRow,
   normalizeSelectedOutpostIndex,
   removeConsumptionRow,
+  removeFacilityMachinesMaxRow,
   removeOutpost,
   removePriceRow,
   removeSupplyRow,
   setConsumptionValue,
+  setFacilityMachinesMaxValue,
   setObjectiveWeight,
   setOutpostField,
   setPowerEnabled,
@@ -34,6 +37,7 @@ const EMPTY_DRAFT: AicDraft = {
   },
   supply: [],
   consumption: [],
+  facilityMachinesMax: [],
   outposts: []
 };
 
@@ -97,6 +101,18 @@ describe('draft actions', () => {
     const after = removeConsumptionRow(draft, 0);
     expect(after.consumption).toHaveLength(1);
     expect(after.consumption[0]?.itemKey).toBe('B');
+  });
+
+  it('adds and removes facility machine max rows by index', () => {
+    let draft = addFacilityMachinesMaxRow(EMPTY_DRAFT, 'Smelter');
+    draft = setFacilityMachinesMaxValue(draft, 0, 3.7);
+    expect(draft.facilityMachinesMax[0]?.facilityKey).toBe('Smelter');
+    expect(draft.facilityMachinesMax[0]?.value).toBe(4);
+
+    draft = addFacilityMachinesMaxRow(draft, 'Assembler');
+    const after = removeFacilityMachinesMaxRow(draft, 0);
+    expect(after.facilityMachinesMax).toHaveLength(1);
+    expect(after.facilityMachinesMax[0]?.facilityKey).toBe('Assembler');
   });
 
   it('normalizes selected outpost index for empty and invalid states', () => {

@@ -17,16 +17,20 @@
   } from "../lib/outpost-selection";
   import {
     addConsumptionRow,
+    addFacilityMachinesMaxRow,
     addOutpost,
     addPriceRow,
     addSupplyRow,
     normalizeSelectedOutpostIndex,
     removeConsumptionRow,
+    removeFacilityMachinesMaxRow,
     removeOutpost,
     removePriceRow,
     removeSupplyRow,
     setConsumptionKey,
     setConsumptionValue,
+    setFacilityMachinesMaxKey,
+    setFacilityMachinesMaxValue,
     setObjectiveWeight,
     setPowerEnabled,
     setPowerExternalConsumption,
@@ -50,7 +54,7 @@
   } from "../lib/solver-controller";
   import { renderedOkState, type SolveState } from "../lib/solve-state";
   import { translateByLang } from "../lib/lang";
-  import type { AicDraft, CatalogItemDto, LangTag } from "../lib/types";
+  import type { AicDraft, CatalogFacilityDto, CatalogItemDto, LangTag } from "../lib/types";
   import { EMPTY_DRAFT } from "../lib/types";
   import { createHydrationPersistGate as createHydrationGate } from "../lib/hydration-persist-gate.svelte";
   import { createBackend, type Backend } from "../lib/backend";
@@ -79,6 +83,7 @@
 
   let { lang }: Props = $props();
   let catalogItems = $state<CatalogItemDto[]>([]);
+  let catalogFacilities = $state<CatalogFacilityDto[]>([]);
   let draft = $state<AicDraft>(structuredClone(EMPTY_DRAFT));
   const defaultToml = bundledDefaultAicToml;
 
@@ -214,6 +219,7 @@
       const nextBackend = backend ?? await backendReady;
       const payload = await nextBackend.loadBootstrap(lang);
       catalogItems = payload.catalog.items;
+      catalogFacilities = payload.catalog.facilities;
     } catch (error) {
       showErrorToast(error instanceof Error ? error.message : String(error));
     } finally {
@@ -314,6 +320,20 @@
       },
       setValue: (index, value) => {
         draft = setConsumptionValue(draft, index, value);
+      },
+    },
+    facilityMachinesMax: {
+      add: () => {
+        draft = addFacilityMachinesMaxRow(draft, catalogFacilities[0]?.key ?? "");
+      },
+      remove: (index) => {
+        draft = removeFacilityMachinesMaxRow(draft, index);
+      },
+      setKey: (index, key) => {
+        draft = setFacilityMachinesMaxKey(draft, index, key);
+      },
+      setValue: (index, value) => {
+        draft = setFacilityMachinesMaxValue(draft, index, value);
       },
     },
     outposts: {
@@ -421,6 +441,7 @@
     {lang}
     {draft}
     {catalogItems}
+    {catalogFacilities}
     {selectedOutpostIndex}
     {isBootstrapping}
     {solveState}
@@ -433,6 +454,7 @@
     {lang}
     {draft}
     {catalogItems}
+    {catalogFacilities}
     {selectedOutpostIndex}
     {isBootstrapping}
     {solveState}

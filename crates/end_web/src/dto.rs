@@ -13,11 +13,20 @@ pub struct BootstrapPayload {
 #[serde(rename_all = "camelCase")]
 pub struct CatalogDto {
     pub items: Box<[CatalogItemDto]>,
+    pub facilities: Box<[CatalogFacilityDto]>,
 }
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CatalogItemDto {
+    pub key: Box<str>,
+    pub en: Box<str>,
+    pub zh: Box<str>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CatalogFacilityDto {
     pub key: Box<str>,
     pub en: Box<str>,
     pub zh: Box<str>,
