@@ -125,6 +125,8 @@ pub(crate) struct AicToml {
     pub(crate) supply_per_min: Spanned<BTreeMap<KeyToml, PositiveF64Toml>>,
     #[serde(default = "default_empty_spanned_item_positive_f64_map")]
     pub(crate) external_consumption_per_min: Spanned<BTreeMap<KeyToml, PositiveF64Toml>>,
+    #[serde(default = "default_empty_spanned_key_non_negative_u32_map")]
+    pub(crate) facility_machines_max: Spanned<BTreeMap<KeyToml, NonNegativeU32Toml>>,
     #[serde(default)]
     pub(crate) outposts: Box<[Spanned<OutpostToml>]>,
 }
@@ -542,5 +544,9 @@ fn parse_supported_aic_version(value: i64) -> Result<u32, String> {
 }
 
 fn default_empty_spanned_item_positive_f64_map() -> Spanned<BTreeMap<KeyToml, PositiveF64Toml>> {
+    Spanned::new(0..0, BTreeMap::new())
+}
+
+fn default_empty_spanned_key_non_negative_u32_map() -> Spanned<BTreeMap<KeyToml, NonNegativeU32Toml>> {
     Spanned::new(0..0, BTreeMap::new())
 }

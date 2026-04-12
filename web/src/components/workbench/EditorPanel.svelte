@@ -23,6 +23,7 @@
     lang,
     draft,
     catalogItems,
+    catalogFacilities,
     selectedOutpostIndex,
     isResetDisabled,
     actions,
@@ -50,6 +51,12 @@
     catalogItems.map((item) => ({
       value: item.key,
       label: t(item.zh, item.en),
+    })),
+  );
+  const facilityOptions = $derived<SelectOption[]>(
+    catalogFacilities.map((facility) => ({
+      value: facility.key,
+      label: t(facility.zh, facility.en),
     })),
   );
   const regionOptions = $derived<SelectOption[]>([
@@ -414,6 +421,66 @@
             icon="horizontal_rule"
             onClick={() => actions.supply.remove(rowIndex)}
             ariaLabel={t("删除供给条目", "Remove supply row")}
+          />
+        </div>
+      {/each}
+    </section>
+
+    <section>
+      <PanelHeader>
+        {#snippet title()}
+          <div class="heading-with-hint">
+            <h3>{t("设备数量", "Facility Machines Max")}</h3>
+            <FieldHint
+              text={t(
+                "限制指定设备在产线中允许使用的最大台数（含对应配方的机器总数）。",
+                "Limits the maximum allowed machine count for a given facility across the whole plan.",
+              )}
+            />
+          </div>
+        {/snippet}
+
+        {#snippet controls()}
+          <IconActionButton
+            icon="add"
+            onClick={actions.facilityMachinesMax.add}
+            ariaLabel={t("添加设备限制条目", "Add facility limit row")}
+          />
+        {/snippet}
+      </PanelHeader>
+
+      {#if draft.facilityMachinesMax.length === 0}
+        <p class="hint">{t("暂无设备限制条目。", "No facility limit rows yet.")}</p>
+      {/if}
+
+      {#each draft.facilityMachinesMax as row, rowIndex (rowIndex)}
+        <div class="row-grid">
+          <SelectField
+            value={row.facilityKey}
+            options={facilityOptions}
+            ariaLabel={t("选择设备", "Select facility")}
+            searchPlaceholder={t("搜索设备...", "Search facilities...")}
+            emptyText={t("无匹配设备", "No matching facilities")}
+            onChange={(nextValue) =>
+              actions.facilityMachinesMax.setKey(rowIndex, nextValue)}
+          />
+
+          <InputField
+            type="number"
+            min="0"
+            step="1"
+            value={row.value}
+            oninput={(event) =>
+              actions.facilityMachinesMax.setValue(
+                rowIndex,
+                Number((event.currentTarget as HTMLInputElement).value),
+              )}
+          />
+
+          <IconActionButton
+            icon="horizontal_rule"
+            onClick={() => actions.facilityMachinesMax.remove(rowIndex)}
+            ariaLabel={t("删除设备限制条目", "Remove facility limit row")}
           />
         </div>
       {/each}

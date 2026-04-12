@@ -3,8 +3,8 @@ mod types;
 
 pub use builder::AicInputsBuilder;
 pub use types::{
-    AicBuildError, AicInputs, ItemNonZeroU32Map, ItemPosF64Map, ItemU32Map, OutpostId, OutpostInput, PowerConfig,
-    Region, Stage2Weights,
+    AicBuildError, AicInputs, FacilityU32Map, ItemNonZeroU32Map, ItemPosF64Map, ItemU32Map,
+    OutpostId, OutpostInput, PowerConfig, Region, Stage2Weights,
 };
 
 impl<'cid, 'sid> AicInputs<'cid, 'sid> {
@@ -26,6 +26,10 @@ impl<'cid, 'sid> AicInputs<'cid, 'sid> {
 
     pub fn external_consumption_per_min(&self) -> &ItemPosF64Map<'cid> {
         &self.external_consumption_per_min
+    }
+
+    pub fn facility_machines_max(&self) -> &FacilityU32Map<'cid> {
+        &self.facility_machines_max
     }
 
     pub fn outposts(&self) -> &[OutpostInput<'cid>] {

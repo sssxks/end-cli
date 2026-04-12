@@ -2,7 +2,8 @@ use crate::error::map_aic_build_error;
 use crate::schema::{AicToml, PowerToml};
 use crate::{Error, Result};
 use end_model::{
-    AicInputs, Catalog, ItemPosF64Map, ItemU32Map, OutpostInput, PosF64, PowerConfig, Stage2Weights,
+    AicInputs, Catalog, FacilityU32Map, ItemPosF64Map, ItemU32Map, OutpostInput, PosF64,
+    PowerConfig, Stage2Weights,
 };
 use generativity::{Guard, make_guard};
 use std::collections::BTreeMap;
@@ -149,6 +150,23 @@ fn resolve_aic<'cid, 'sid>(
         external_consumption_per_min.insert(item, value);
     }
 
+    let facility_machines_max_span = raw.facility_machines_max.span();
+    let raw_facility_machines_max = raw.facility_machines_max.into_inner();
+    let mut facility_machines_max = FacilityU32Map::with_capacity(raw_facility_machines_max.len());
+    for (facility_key, value) in raw_facility_machines_max {
+        let facility_key = facility_key.into_inner();
+        let value = value.into_inner();
+        let facility = catalog
+            .facility_id(facility_key.as_str())
+            .ok_or_else(|| Error::UnknownFacility {
+                path: path.clone(),
+                key: facility_key.into(),
+                span: Some(facility_machines_max_span.clone()),
+                src: Some(Arc::clone(&src)),
+            })?;
+        facility_machines_max.insert(facility, value);
+    }
+
     let mut builder = AicInputs::builder(
         guard,
         power_config,
@@ -156,6 +174,7 @@ fn resolve_aic<'cid, 'sid>(
         external_consumption_per_min,
     )
     .region(region)
+    .facility_machines_max(facility_machines_max)
     .stage2_weights(stage2_weights);
 
     let mut outpost_spans = BTreeMap::new();

@@ -22,6 +22,7 @@ function parseStoredDraft(text: string): AicDraft | null {
     const region = regionRaw === 'fourth_valley' ? 'fourth_valley' : 'wuling';
     const supplyRows = Array.isArray(parsed.supply) ? parsed.supply : [];
     const consumptionRows = Array.isArray(parsed.consumption) ? parsed.consumption : [];
+    const facilityRows = Array.isArray(parsed.facilityMachinesMax) ? parsed.facilityMachinesMax : [];
     const outpostRows = Array.isArray(parsed.outposts) ? parsed.outposts : [];
     const asNonNegativeNumber = (value: unknown): number => {
       const parsedNumber = typeof value === 'number' ? value : Number(value);
@@ -95,6 +96,13 @@ function parseStoredDraft(text: string): AicDraft | null {
         return {
           itemKey: asString(record.itemKey),
           value: asNonNegativeNumber(record.value)
+        };
+      }),
+      facilityMachinesMax: facilityRows.map((row) => {
+        const record = asRecord(row);
+        return {
+          facilityKey: asString(record.facilityKey),
+          value: asInt(record.value)
         };
       }),
       outposts: outpostRows.map((row) => {

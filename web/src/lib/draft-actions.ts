@@ -135,6 +135,34 @@ export function setConsumptionValue(draft: AicDraft, index: number, value: numbe
   };
 }
 
+export function setFacilityMachinesMaxKey(draft: AicDraft, index: number, value: string): AicDraft {
+  return {
+    ...draft,
+    facilityMachinesMax: draft.facilityMachinesMax.map((row, rowIndex) =>
+      rowIndex === index
+        ? {
+            ...row,
+            facilityKey: value
+          }
+        : row
+    )
+  };
+}
+
+export function setFacilityMachinesMaxValue(draft: AicDraft, index: number, value: number): AicDraft {
+  return {
+    ...draft,
+    facilityMachinesMax: draft.facilityMachinesMax.map((row, rowIndex) =>
+      rowIndex === index
+        ? {
+            ...row,
+            value: asNonNegativeInt(value)
+          }
+        : row
+    )
+  };
+}
+
 export function addSupplyRow(draft: AicDraft, firstItemKey: string): AicDraft {
   return {
     ...draft,
@@ -149,6 +177,13 @@ export function addConsumptionRow(draft: AicDraft, firstItemKey: string): AicDra
   };
 }
 
+export function addFacilityMachinesMaxRow(draft: AicDraft, firstFacilityKey: string): AicDraft {
+  return {
+    ...draft,
+    facilityMachinesMax: [...draft.facilityMachinesMax, { facilityKey: firstFacilityKey, value: 1 }]
+  };
+}
+
 export function removeSupplyRow(draft: AicDraft, index: number): AicDraft {
   return {
     ...draft,
@@ -160,6 +195,13 @@ export function removeConsumptionRow(draft: AicDraft, index: number): AicDraft {
   return {
     ...draft,
     consumption: draft.consumption.filter((_, rowIndex) => rowIndex !== index)
+  };
+}
+
+export function removeFacilityMachinesMaxRow(draft: AicDraft, index: number): AicDraft {
+  return {
+    ...draft,
+    facilityMachinesMax: draft.facilityMachinesMax.filter((_, rowIndex) => rowIndex !== index)
   };
 }
 

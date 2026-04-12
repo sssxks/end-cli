@@ -19,9 +19,16 @@ export interface CatalogItemDto {
   zh: string;
 }
 
+export interface CatalogFacilityDto {
+  key: string;
+  en: string;
+  zh: string;
+}
+
 export interface BootstrapPayload {
   catalog: {
     items: CatalogItemDto[];
+    facilities: CatalogFacilityDto[];
   };
 }
 
@@ -149,6 +156,11 @@ export interface ConsumptionRow {
   value: number;
 }
 
+export interface FacilityMachinesMaxRow {
+  facilityKey: string;
+  value: number;
+}
+
 export interface PriceRow {
   itemKey: string;
   price: number;
@@ -167,6 +179,7 @@ export interface AicDraft {
   objective: Objective;
   supply: SupplyRow[];
   consumption: ConsumptionRow[];
+  facilityMachinesMax: FacilityMachinesMaxRow[];
   outposts: Outpost[];
 }
 
@@ -184,5 +197,6 @@ export const EMPTY_DRAFT: AicDraft = {
   },
   supply: [],
   consumption: [],
+  facilityMachinesMax: [],
   outposts: []
 };

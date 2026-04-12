@@ -5,7 +5,7 @@ use generativity::Id;
 use thiserror::Error;
 use vector_map::VecMap;
 
-use crate::{DisplayName, ItemId, Key, PosF64};
+use crate::{DisplayName, FacilityId, ItemId, Key, PosF64};
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Stage2Weights {
@@ -157,6 +157,76 @@ impl<'id> From<Vec<(ItemId<'id>, u32)>> for ItemU32Map<'id> {
 impl<'id> IntoIterator for ItemU32Map<'id> {
     type Item = (ItemId<'id>, u32);
     type IntoIter = vector_map::IntoIter<ItemId<'id>, u32>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
+    }
+}
+
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct FacilityU32Map<'id>(VecMap<FacilityId<'id>, u32>);
+
+impl<'id> FacilityU32Map<'id> {
+    pub fn new() -> Self {
+        Self(VecMap::new())
+    }
+
+    pub fn with_capacity(capacity: usize) -> Self {
+        Self(VecMap::with_capacity(capacity))
+    }
+
+    pub fn len(&self) -> usize {
+        self.0.len()
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.0.is_empty()
+    }
+
+    pub fn insert(&mut self, facility: FacilityId<'id>, value: u32) -> Option<u32> {
+        self.0.insert(facility, value)
+    }
+
+    pub fn get(&self, facility: FacilityId<'id>) -> Option<&u32> {
+        self.0.get(&facility)
+    }
+
+    pub fn iter(&self) -> impl Iterator<Item = (FacilityId<'id>, u32)> + '_ {
+        self.0.iter().map(|(facility, value)| (*facility, *value))
+    }
+}
+
+impl<'id> Extend<(FacilityId<'id>, u32)> for FacilityU32Map<'id> {
+    fn extend<T: IntoIterator<Item = (FacilityId<'id>, u32)>>(&mut self, iter: T) {
+        for (facility, value) in iter {
+            self.insert(facility, value);
+        }
+    }
+}
+
+impl<'id> FromIterator<(FacilityId<'id>, u32)> for FacilityU32Map<'id> {
+    fn from_iter<T: IntoIterator<Item = (FacilityId<'id>, u32)>>(iter: T) -> Self {
+        let mut map = Self::new();
+        map.extend(iter);
+        map
+    }
+}
+
+impl<'id, const N: usize> From<[(FacilityId<'id>, u32); N]> for FacilityU32Map<'id> {
+    fn from(value: [(FacilityId<'id>, u32); N]) -> Self {
+        value.into_iter().collect()
+    }
+}
+
+impl<'id> From<Vec<(FacilityId<'id>, u32)>> for FacilityU32Map<'id> {
+    fn from(value: Vec<(FacilityId<'id>, u32)>) -> Self {
+        value.into_iter().collect()
+    }
+}
+
+impl<'id> IntoIterator for FacilityU32Map<'id> {
+    type Item = (FacilityId<'id>, u32);
+    type IntoIter = vector_map::IntoIter<FacilityId<'id>, u32>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.0.into_iter()
@@ -317,6 +387,7 @@ pub struct AicInputs<'cid, 'sid> {
     pub(super) region: Region,
     pub(super) supply_per_min: ItemPosF64Map<'cid>,
     pub(super) external_consumption_per_min: ItemPosF64Map<'cid>,
+    pub(super) facility_machines_max: FacilityU32Map<'cid>,
     pub(super) outposts: Box<[OutpostInput<'cid>]>,
     pub(super) power_config: PowerConfig,
     pub(super) stage2_weights: Stage2Weights,

@@ -11,7 +11,7 @@
   import { createHydrationPersistGate } from "../../lib/hydration-persist-gate.svelte";
   import { translateByLang } from "../../lib/lang";
   import type { SolveState } from "../../lib/solve-state";
-  import type { AicDraft, CatalogItemDto, LangTag } from "../../lib/types";
+  import type { AicDraft, CatalogFacilityDto, CatalogItemDto, LangTag } from "../../lib/types";
   import type { OutpostSelection } from "../../lib/outpost-selection";
   import { localStorageGet } from "../../lib/storage";
   import {
@@ -28,6 +28,7 @@
     lang: LangTag;
     draft: AicDraft;
     catalogItems: CatalogItemDto[];
+    catalogFacilities: CatalogFacilityDto[];
     selectedOutpostIndex: OutpostSelection;
     isBootstrapping: boolean;
     solveState: SolveState;
@@ -45,6 +46,7 @@
     lang,
     draft,
     catalogItems,
+    catalogFacilities,
     selectedOutpostIndex,
     isBootstrapping,
     solveState,
@@ -121,6 +123,7 @@
       {lang}
       {draft}
       {catalogItems}
+      {catalogFacilities}
       {selectedOutpostIndex}
       isResetDisabled={isBootstrapping}
       actions={editorActions}
