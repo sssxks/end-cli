@@ -1,7 +1,7 @@
 use end_model::{DisplayName, Key, Region};
 use serde::Deserialize;
 use serde::de::Error as _;
-use serde::de::{Visitor, Unexpected};
+use serde::de::{Unexpected, Visitor};
 use std::collections::BTreeMap;
 use std::num::NonZeroU32;
 use toml::Spanned;
@@ -288,27 +288,6 @@ impl<'de> Deserialize<'de> for KeyToml {
 }
 
 #[derive(Debug, Clone, Copy)]
-pub(crate) struct PositiveU32Toml(NonZeroU32);
-
-impl PositiveU32Toml {
-    pub(crate) fn into_inner(self) -> NonZeroU32 {
-        self.0
-    }
-}
-
-impl<'de> Deserialize<'de> for PositiveU32Toml {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: serde::Deserializer<'de>,
-    {
-        let value = i64::deserialize(deserializer)?;
-        parse_positive_u32(value)
-            .map(Self)
-            .map_err(D::Error::custom)
-    }
-}
-
-#[derive(Debug, Clone, Copy)]
 pub(crate) struct PositiveF64Toml(f64);
 
 impl PositiveF64Toml {
@@ -335,31 +314,39 @@ impl<'de> Deserialize<'de> for PositiveF64Toml {
             where
                 E: serde::de::Error,
             {
-                parse_positive_f64(value as f64).map(PositiveF64Toml).map_err(E::custom)
+                parse_positive_f64(value as f64)
+                    .map(PositiveF64Toml)
+                    .map_err(E::custom)
             }
 
             fn visit_u64<E>(self, value: u64) -> Result<Self::Value, E>
             where
                 E: serde::de::Error,
             {
-                parse_positive_f64(value as f64).map(PositiveF64Toml).map_err(E::custom)
+                parse_positive_f64(value as f64)
+                    .map(PositiveF64Toml)
+                    .map_err(E::custom)
             }
 
             fn visit_f64<E>(self, value: f64) -> Result<Self::Value, E>
             where
                 E: serde::de::Error,
             {
-                parse_positive_f64(value).map(PositiveF64Toml).map_err(E::custom)
+                parse_positive_f64(value)
+                    .map(PositiveF64Toml)
+                    .map_err(E::custom)
             }
 
             fn visit_str<E>(self, value: &str) -> Result<Self::Value, E>
             where
                 E: serde::de::Error,
             {
-                let parsed = value.parse::<f64>().map_err(|_| {
-                    E::invalid_value(Unexpected::Str(value), &"a positive number")
-                })?;
-                parse_positive_f64(parsed).map(PositiveF64Toml).map_err(E::custom)
+                let parsed = value
+                    .parse::<f64>()
+                    .map_err(|_| E::invalid_value(Unexpected::Str(value), &"a positive number"))?;
+                parse_positive_f64(parsed)
+                    .map(PositiveF64Toml)
+                    .map_err(E::custom)
             }
 
             fn visit_string<E>(self, value: String) -> Result<Self::Value, E>
@@ -547,6 +534,7 @@ fn default_empty_spanned_item_positive_f64_map() -> Spanned<BTreeMap<KeyToml, Po
     Spanned::new(0..0, BTreeMap::new())
 }
 
-fn default_empty_spanned_key_non_negative_u32_map() -> Spanned<BTreeMap<KeyToml, NonNegativeU32Toml>> {
+fn default_empty_spanned_key_non_negative_u32_map() -> Spanned<BTreeMap<KeyToml, NonNegativeU32Toml>>
+{
     Spanned::new(0..0, BTreeMap::new())
 }
