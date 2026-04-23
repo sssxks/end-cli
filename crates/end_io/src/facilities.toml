@@ -2,6 +2,19 @@
 # Do not edit manually. Edit scripts/data_generator/manual_data.toml instead.
 
 [[machines]]
+key = "Acid Resistant Pump Mk II"
+power_w = 20
+en = "Acid Resistant Pump Mk II"
+zh = "二级耐酸水泵"
+
+[[machines]]
+key = "Expanded Crucible"
+power_w = 100
+en = "Expanded Crucible"
+zh = "扩容反应池"
+regions = ["wuling"]
+
+[[machines]]
 key = "Filling Unit"
 power_w = 20
 en = "Filling Unit"
@@ -58,6 +71,13 @@ en = "Planting Unit"
 zh = "种植机"
 
 [[machines]]
+key = "Purification Unit"
+power_w = 50
+en = "Purification Unit"
+zh = "提纯机"
+regions = ["wuling"]
+
+[[machines]]
 key = "Reactor Crucible"
 power_w = 50
 en = "Reactor Crucible"
@@ -94,6 +114,7 @@ key = "Water Treatment Unit"
 power_w = 50
 en = "Water Treatment Unit"
 zh = "废水处理机"
+regions = ["wuling"]
 
 [thermal_bank]
 key = "Thermal Bank"

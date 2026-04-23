@@ -18,13 +18,6 @@ en = "Fitting Unit"
 zh = "配件机"
 
 [[machines]]
-key = "Forge of the Sky"
-power_w = 50
-en = "Forge of the Sky"
-zh = "天有洪炉"
-regions = ["wuling"]
-
-[[machines]]
 key = "Gearing Unit"
 power_w = 10
 en = "Gearing Unit"
@@ -55,13 +48,6 @@ en = "Planting Unit"
 zh = "种植机"
 
 [[machines]]
-key = "Reactor Crucible"
-power_w = 50
-en = "Reactor Crucible"
-zh = "反应池"
-regions = ["wuling"]
-
-[[machines]]
 key = "Refining Unit"
 power_w = 5
 en = "Refining Unit"
@@ -74,6 +60,35 @@ en = "Seed-Picking Unit"
 zh = "采种机"
 
 [[machines]]
+key = "Shredding Unit"
+power_w = 5
+en = "Shredding Unit"
+zh = "粉碎机"
+
+# Wuling machines
+
+[[machines]]
+key = "Forge of the Sky"
+power_w = 50
+en = "Forge of the Sky"
+zh = "天有洪炉"
+regions = ["wuling"]
+
+[[machines]]
+key = "Reactor Crucible"
+power_w = 50
+en = "Reactor Crucible"
+zh = "反应池"
+regions = ["wuling"]
+
+[[machines]]
+key = "Expanded Crucible"
+power_w = 100
+en = "Expanded Crucible"
+zh = "扩容反应池"
+regions = ["wuling"]
+
+[[machines]]
 key = "Separating Unit"
 power_w = 20
 en = "Separating Unit"
@@ -81,12 +96,20 @@ zh = "拆解机"
 regions = ["wuling"]
 
 [[machines]]
-key = "Shredding Unit"
-power_w = 5
-en = "Shredding Unit"
-zh = "粉碎机"
+key = "Water Treatment Unit"
+power_w = 50
+en = "Water Treatment Unit"
+zh = "废水处理机"
+regions = ["wuling"]
 
-# Fluid Pump is a manual recipe-only facility
+[[machines]]
+key = "Purification Unit"
+power_w = 50
+en = "Purification Unit"
+zh = "提纯机"
+regions = ["wuling"]
+
+# Fluid Pump and Mk II version is a manual recipe-only facility
 [[machines]]
 key = "Fluid Pump"
 power_w = 10
@@ -95,10 +118,10 @@ zh = "水泵"
 regions = ["wuling"]
 
 [[machines]]
-key = "Water Treatment Unit"
-power_w = 50
-en = "Water Treatment Unit"
-zh = "废水处理机"
+key = "Acid Resistant Pump Mk II"
+power_w = 20
+en = "Acid Resistant Pump Mk II"
+zh = "二级耐酸水泵"
 
 [thermal_bank]
 key = "Thermal Bank"
@@ -142,6 +165,16 @@ en = "Amethyst Bottle (Clean Water)"
 zh = "紫晶质瓶（清水）"
 
 [[items]]
+key = "Amethyst Bottle (Cuprium Solution)"
+en = "Amethyst Bottle (Cuprium Solution)"
+zh = "紫晶质瓶（赤铜溶液）"
+
+[[items]]
+key = "Amethyst Bottle (Hetonite Solution)"
+en = "Amethyst Bottle (Hetonite Solution)"
+zh = "紫晶质瓶（赫铜溶液）"
+
+[[items]]
 key = "Amethyst Bottle (Inert Xircon Effluent)"
 en = "Amethyst Bottle (Inert Xircon Effluent)"
 zh = "紫晶质瓶（惰性壤晶废液）"
@@ -152,9 +185,19 @@ en = "Amethyst Bottle (Jincao Solution)"
 zh = "紫晶质瓶（锦草溶液）"
 
 [[items]]
+key = "Amethyst Bottle (Liquid Heavy Xiranite)"
+en = "Amethyst Bottle (Liquid Heavy Xiranite)"
+zh = "紫晶质瓶（液化重息壤）"
+
+[[items]]
 key = "Amethyst Bottle (Liquid Xiranite)"
 en = "Amethyst Bottle (Liquid Xiranite)"
 zh = "紫晶质瓶（液态息壤）"
+
+[[items]]
+key = "Amethyst Bottle (Precipitation Acid)"
+en = "Amethyst Bottle (Precipitation Acid)"
+zh = "紫晶质瓶（沉积酸）"
 
 [[items]]
 key = "Amethyst Bottle (Sewage)"
@@ -293,6 +336,16 @@ en = "Cryston Bottle (Clean Water)"
 zh = "高晶质瓶（清水）"
 
 [[items]]
+key = "Cryston Bottle (Cuprium Solution)"
+en = "Cryston Bottle (Cuprium Solution)"
+zh = "高晶质瓶（赤铜溶液）"
+
+[[items]]
+key = "Cryston Bottle (Hetonite Solution)"
+en = "Cryston Bottle (Hetonite Solution)"
+zh = "高晶质瓶（赫铜溶液）"
+
+[[items]]
 key = "Cryston Bottle (Inert Xircon Effluent)"
 en = "Cryston Bottle (Inert Xircon Effluent)"
 zh = "高晶质瓶（惰性壤晶废液）"
@@ -303,9 +356,19 @@ en = "Cryston Bottle (Jincao Solution)"
 zh = "高晶质瓶（锦草溶液）"
 
 [[items]]
+key = "Cryston Bottle (Liquid Heavy Xiranite)"
+en = "Cryston Bottle (Liquid Heavy Xiranite)"
+zh = "高晶质瓶（液化重息壤）"
+
+[[items]]
 key = "Cryston Bottle (Liquid Xiranite)"
 en = "Cryston Bottle (Liquid Xiranite)"
 zh = "高晶质瓶（液态息壤）"
+
+[[items]]
+key = "Cryston Bottle (Precipitation Acid)"
+en = "Cryston Bottle (Precipitation Acid)"
+zh = "高晶质瓶（沉积酸）"
 
 [[items]]
 key = "Cryston Bottle (Sewage)"
@@ -358,6 +421,16 @@ en = "Cuprium Bottle (Clean Water)"
 zh = "赤铜瓶（清水）"
 
 [[items]]
+key = "Cuprium Bottle (Cuprium Solution)"
+en = "Cuprium Bottle (Cuprium Solution)"
+zh = "赤铜瓶（赤铜溶液）"
+
+[[items]]
+key = "Cuprium Bottle (Hetonite Solution)"
+en = "Cuprium Bottle (Hetonite Solution)"
+zh = "赤铜瓶（赫铜溶液）"
+
+[[items]]
 key = "Cuprium Bottle (Inert Xircon Effluent)"
 en = "Cuprium Bottle (Inert Xircon Effluent)"
 zh = "赤铜瓶（惰性壤晶废液）"
@@ -368,9 +441,19 @@ en = "Cuprium Bottle (Jincao Solution)"
 zh = "赤铜瓶（锦草溶液）"
 
 [[items]]
+key = "Cuprium Bottle (Liquid Heavy Xiranite)"
+en = "Cuprium Bottle (Liquid Heavy Xiranite)"
+zh = "赤铜瓶（液化重息壤）"
+
+[[items]]
 key = "Cuprium Bottle (Liquid Xiranite)"
 en = "Cuprium Bottle (Liquid Xiranite)"
 zh = "赤铜瓶（液态息壤）"
+
+[[items]]
+key = "Cuprium Bottle (Precipitation Acid)"
+en = "Cuprium Bottle (Precipitation Acid)"
+zh = "赤铜瓶（沉积酸）"
 
 [[items]]
 key = "Cuprium Bottle (Sewage)"
@@ -428,6 +511,36 @@ en = "Dense Origocrust Powder"
 zh = "浓缩晶体外壳粉"
 
 [[items]]
+key = "Experimental Heavy Xiranite Bottle"
+en = "Experimental Heavy Xiranite Bottle"
+zh = "实验重息壤瓶"
+
+[[items]]
+key = "Experimental Heavy Xiranite Bottle (Yazhen Solution)"
+en = "Experimental Heavy Xiranite Bottle (Yazhen Solution)"
+zh = "实验重息壤瓶（芽针溶液）"
+
+[[items]]
+key = "Experimental Heavy Xiranite Part"
+en = "Experimental Heavy Xiranite Part"
+zh = "实验重息壤零件"
+
+[[items]]
+key = "Experimental Xiran-Hue Atomizer"
+en = "Experimental Xiran-Hue Atomizer"
+zh = "实验息壤调色雾化器"
+
+[[items]]
+key = "Experimental Xiranite Bottle"
+en = "Experimental Xiranite Bottle"
+zh = "实验息壤瓶"
+
+[[items]]
+key = "Experimental Xiranite Part"
+en = "Experimental Xiranite Part"
+zh = "实验息壤零件"
+
+[[items]]
 key = "Ferrium"
 en = "Ferrium"
 zh = "铁"
@@ -443,6 +556,16 @@ en = "Ferrium Bottle (Clean Water)"
 zh = "铁质瓶（清水）"
 
 [[items]]
+key = "Ferrium Bottle (Cuprium Solution)"
+en = "Ferrium Bottle (Cuprium Solution)"
+zh = "铁质瓶（赤铜溶液）"
+
+[[items]]
+key = "Ferrium Bottle (Hetonite Solution)"
+en = "Ferrium Bottle (Hetonite Solution)"
+zh = "铁质瓶（赫铜溶液）"
+
+[[items]]
 key = "Ferrium Bottle (Inert Xircon Effluent)"
 en = "Ferrium Bottle (Inert Xircon Effluent)"
 zh = "铁质瓶（惰性壤晶废液）"
@@ -453,9 +576,19 @@ en = "Ferrium Bottle (Jincao Solution)"
 zh = "铁质瓶（锦草溶液）"
 
 [[items]]
+key = "Ferrium Bottle (Liquid Heavy Xiranite)"
+en = "Ferrium Bottle (Liquid Heavy Xiranite)"
+zh = "铁质瓶（液化重息壤）"
+
+[[items]]
 key = "Ferrium Bottle (Liquid Xiranite)"
 en = "Ferrium Bottle (Liquid Xiranite)"
 zh = "铁质瓶（液态息壤）"
+
+[[items]]
+key = "Ferrium Bottle (Precipitation Acid)"
+en = "Ferrium Bottle (Precipitation Acid)"
+zh = "铁质瓶（沉积酸）"
 
 [[items]]
 key = "Ferrium Bottle (Sewage)"
@@ -662,6 +795,16 @@ en = "Steel Bottle (Clean Water)"
 zh = "钢质瓶（清水）"
 
 [[items]]
+key = "Steel Bottle (Cuprium Solution)"
+en = "Steel Bottle (Cuprium Solution)"
+zh = "钢质瓶（赤铜溶液）"
+
+[[items]]
+key = "Steel Bottle (Hetonite Solution)"
+en = "Steel Bottle (Hetonite Solution)"
+zh = "钢质瓶（赫铜溶液）"
+
+[[items]]
 key = "Steel Bottle (Inert Xircon Effluent)"
 en = "Steel Bottle (Inert Xircon Effluent)"
 zh = "钢质瓶（惰性壤晶废液）"
@@ -672,9 +815,19 @@ en = "Steel Bottle (Jincao Solution)"
 zh = "钢质瓶（锦草溶液）"
 
 [[items]]
+key = "Steel Bottle (Liquid Heavy Xiranite)"
+en = "Steel Bottle (Liquid Heavy Xiranite)"
+zh = "钢质瓶（液化重息壤）"
+
+[[items]]
 key = "Steel Bottle (Liquid Xiranite)"
 en = "Steel Bottle (Liquid Xiranite)"
 zh = "钢质瓶（液态息壤）"
+
+[[items]]
+key = "Steel Bottle (Precipitation Acid)"
+en = "Steel Bottle (Precipitation Acid)"
+zh = "钢质瓶（沉积酸）"
 
 [[items]]
 key = "Steel Bottle (Sewage)"
@@ -722,6 +875,16 @@ en = "Xiranite Component"
 zh = "息壤装备原件"
 
 [[items]]
+key = "Xiranite Gourd"
+en = "Xiranite Gourd"
+zh = "息壤葫芦"
+
+[[items]]
+key = "Xiranite Jade Gourd"
+en = "Xiranite Jade Gourd"
+zh = "息壤玉葫芦"
+
+[[items]]
 key = "Xircon"
 en = "Xircon"
 zh = "壤晶"
@@ -763,39 +926,141 @@ key = "Yazhen Syringe (C)"
 en = "Yazhen Syringe (C)"
 zh = "芽针针剂"
 
+[[items]]
+key = "Cuprium Solution"
+en = "Cuprium Solution"
+zh = "赤铜溶液"
+
+[[items]]
+key = "Heavy Xiranite"
+en = "Heavy Xiranite"
+zh = "重息壤"
+
+[[items]]
+key = "Hetonite"
+en = "Hetonite"
+zh = "赫铜块"
+
+[[items]]
+key = "Hetonite Bottle"
+en = "Hetonite Bottle"
+zh = "赫铜瓶"
+
+[[items]]
+key = "Hetonite Bottle (Clean Water)"
+en = "Hetonite Bottle (Clean Water)"
+zh = "赫铜瓶（清水）"
+
+[[items]]
+key = "Hetonite Bottle (Cuprium Solution)"
+en = "Hetonite Bottle (Cuprium Solution)"
+zh = "赫铜瓶（赤铜溶液）"
+
+[[items]]
+key = "Hetonite Bottle (Hetonite Solution)"
+en = "Hetonite Bottle (Hetonite Solution)"
+zh = "赫铜瓶（赫铜溶液）"
+
+[[items]]
+key = "Hetonite Bottle (Inert Xircon Effluent)"
+en = "Hetonite Bottle (Inert Xircon Effluent)"
+zh = "赫铜瓶（惰性壤晶废液）"
+
+[[items]]
+key = "Hetonite Bottle (Jincao Solution)"
+en = "Hetonite Bottle (Jincao Solution)"
+zh = "赫铜瓶（锦草溶液）"
+
+[[items]]
+key = "Hetonite Bottle (Liquid Heavy Xiranite)"
+en = "Hetonite Bottle (Liquid Heavy Xiranite)"
+zh = "赫铜瓶（液化重息壤）"
+
+[[items]]
+key = "Hetonite Bottle (Liquid Xiranite)"
+en = "Hetonite Bottle (Liquid Xiranite)"
+zh = "赫铜瓶（液态息壤）"
+
+[[items]]
+key = "Hetonite Bottle (Precipitation Acid)"
+en = "Hetonite Bottle (Precipitation Acid)"
+zh = "赫铜瓶（沉积酸）"
+
+[[items]]
+key = "Hetonite Bottle (Sewage)"
+en = "Hetonite Bottle (Sewage)"
+zh = "赫铜瓶（污水）"
+
+[[items]]
+key = "Hetonite Bottle (Xircon Effluent)"
+en = "Hetonite Bottle (Xircon Effluent)"
+zh = "赫铜瓶（壤晶废液）"
+
+[[items]]
+key = "Hetonite Bottle (Yazhen Solution)"
+en = "Hetonite Bottle (Yazhen Solution)"
+zh = "赫铜瓶（芽针溶液）"
+
+
+[[items]]
+key = "Hetonite Solution"
+en = "Hetonite Solution"
+zh = "赫铜溶液"
+
+[[items]]
+key = "Liquid Heavy Xiranite"
+en = "Liquid Heavy Xiranite"
+zh = "液化重息壤"
+
+[[items]]
+key = "Precipitation Acid"
+en = "Precipitation Acid"
+zh = "沉积酸"
+
+[[items]]
+key = "Hetonite Component"
+en = "Hetonite Component"
+zh = "赫铜装备元件"
+
+[[items]]
+key = "Hetonite Part"
+en = "Hetonite Part"
+zh = "赫铜零件"
+
 # Manual recipes not in Lua files
+
+# Fluid Pump recipes
 [[manual_recipes]]
 facility = "Fluid Pump"
 time_s = 1
+products = [{ item = "Clean Water", count = 1 }]
 
-[[manual_recipes.products]]
-item = "Clean Water"
-count = 1
+# Acid Resistant Pump Mk II recipes
+[[manual_recipes]]
+facility = "Acid Resistant Pump Mk II"
+time_s = 1
+products = [{ item = "Clean Water", count = 1 }]
+
+[[manual_recipes]]
+facility = "Acid Resistant Pump Mk II"
+time_s = 1
+products = [{ item = "Precipitation Acid", count = 1 }]
 
 # Water Treatment Unit recipes
 [[manual_recipes]]
 facility = "Water Treatment Unit"
 time_s = 2
+ingredients = [{ item = "Sewage", count = 1 }]
 products = []
-
-[[manual_recipes.ingredients]]
-item = "Sewage"
-count = 1
 
 [[manual_recipes]]
 facility = "Water Treatment Unit"
 time_s = 2
+ingredients = [{ item = "Inert Xircon Effluent", count = 1 }]
 products = []
-
-[[manual_recipes.ingredients]]
-item = "Inert Xircon Effluent"
-count = 1
 
 [[manual_recipes]]
 facility = "Water Treatment Unit"
 time_s = 2
+ingredients = [{ item = "Xircon Effluent", count = 1 }]
 products = []
-
-[[manual_recipes.ingredients]]
-item = "Xircon Effluent"
-count = 1

@@ -66,7 +66,7 @@ local data = {
 }
 
 for _, v in ipairs(data) do
-    v.facility = "Reactor Crucible"
+    v.facility = "Expanded Crucible"
 end
 
 return data

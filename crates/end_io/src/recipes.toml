@@ -2,10 +2,82 @@
 # Do not edit manually. Edit scripts/data_generator/manual_data.toml instead.
 
 [[recipes]]
+facility = "Acid Resistant Pump Mk II"
+time_s = 1
+ingredients = []
+products = [{ item = "Clean Water", count = 1 }]
+
+[[recipes]]
+facility = "Acid Resistant Pump Mk II"
+time_s = 1
+ingredients = []
+products = [{ item = "Precipitation Acid", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Cuprium Powder", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Hetonite Solution", count = 2 }, { item = "Ferrium Powder", count = 1 }]
+products = [{ item = "Hetonite", count = 1 }, { item = "Sewage", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Jincao Powder", count = 1 }, { item = "Clean Water", count = 1 }]
+products = [{ item = "Jincao Solution", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Heavy Xiranite", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Xiranite", count = 1 }, { item = "Clean Water", count = 1 }]
+products = [{ item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Xircon Effluent", count = 2 }, { item = "Ferrium Powder", count = 1 }]
+products = [{ item = "Xircon", count = 1 }, { item = "Sewage", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Liquid Xiranite", count = 1 }, { item = "Sewage", count = 1 }]
+products = [{ item = "Xircon Effluent", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
+
+[[recipes]]
+facility = "Expanded Crucible"
+time_s = 2
+ingredients = [{ item = "Yazhen Powder", count = 1 }, { item = "Clean Water", count = 1 }]
+products = [{ item = "Yazhen Solution", count = 1 }]
+
+[[recipes]]
 facility = "Filling Unit"
 time_s = 2
 ingredients = [{ item = "Amethyst Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
 products = [{ item = "Amethyst Bottle (Clean Water)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Amethyst Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+products = [{ item = "Amethyst Bottle (Cuprium Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Amethyst Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+products = [{ item = "Amethyst Bottle (Hetonite Solution)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -22,8 +94,20 @@ products = [{ item = "Amethyst Bottle (Jincao Solution)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Amethyst Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+products = [{ item = "Amethyst Bottle (Liquid Heavy Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Amethyst Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
 products = [{ item = "Amethyst Bottle (Liquid Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Amethyst Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Amethyst Bottle (Precipitation Acid)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -88,6 +172,18 @@ products = [{ item = "Cryston Bottle (Clean Water)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Cryston Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+products = [{ item = "Cryston Bottle (Cuprium Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Cryston Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+products = [{ item = "Cryston Bottle (Hetonite Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Cryston Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
 products = [{ item = "Cryston Bottle (Inert Xircon Effluent)", count = 1 }]
 
@@ -100,8 +196,20 @@ products = [{ item = "Cryston Bottle (Jincao Solution)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Cryston Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+products = [{ item = "Cryston Bottle (Liquid Heavy Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Cryston Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
 products = [{ item = "Cryston Bottle (Liquid Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Cryston Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Cryston Bottle (Precipitation Acid)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -130,6 +238,18 @@ products = [{ item = "Cuprium Bottle (Clean Water)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Cuprium Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+products = [{ item = "Cuprium Bottle (Cuprium Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Cuprium Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+products = [{ item = "Cuprium Bottle (Hetonite Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Cuprium Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
 products = [{ item = "Cuprium Bottle (Inert Xircon Effluent)", count = 1 }]
 
@@ -142,8 +262,20 @@ products = [{ item = "Cuprium Bottle (Jincao Solution)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Cuprium Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+products = [{ item = "Cuprium Bottle (Liquid Heavy Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Cuprium Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
 products = [{ item = "Cuprium Bottle (Liquid Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Cuprium Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Cuprium Bottle (Precipitation Acid)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -165,9 +297,27 @@ products = [{ item = "Cuprium Bottle (Yazhen Solution)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
+time_s = 10
+ingredients = [{ item = "Experimental Heavy Xiranite Bottle", count = 1 }, { item = "Yazhen Solution", count = 5 }]
+products = [{ item = "Experimental Heavy Xiranite Bottle (Yazhen Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
 time_s = 2
 ingredients = [{ item = "Ferrium Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
 products = [{ item = "Ferrium Bottle (Clean Water)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Ferrium Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+products = [{ item = "Ferrium Bottle (Cuprium Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Ferrium Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+products = [{ item = "Ferrium Bottle (Hetonite Solution)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -184,8 +334,20 @@ products = [{ item = "Ferrium Bottle (Jincao Solution)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Ferrium Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+products = [{ item = "Ferrium Bottle (Liquid Heavy Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Ferrium Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
 products = [{ item = "Ferrium Bottle (Liquid Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Ferrium Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Ferrium Bottle (Precipitation Acid)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -208,8 +370,86 @@ products = [{ item = "Ferrium Bottle (Yazhen Solution)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
+products = [{ item = "Hetonite Bottle (Clean Water)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+products = [{ item = "Hetonite Bottle (Cuprium Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+products = [{ item = "Hetonite Bottle (Hetonite Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
+products = [{ item = "Hetonite Bottle (Inert Xircon Effluent)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Jincao Solution", count = 1 }]
+products = [{ item = "Hetonite Bottle (Jincao Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+products = [{ item = "Hetonite Bottle (Liquid Heavy Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+products = [{ item = "Hetonite Bottle (Liquid Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Hetonite Bottle (Precipitation Acid)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Sewage", count = 1 }]
+products = [{ item = "Hetonite Bottle (Sewage)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Xircon Effluent", count = 1 }]
+products = [{ item = "Hetonite Bottle (Xircon Effluent)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle", count = 1 }, { item = "Yazhen Solution", count = 1 }]
+products = [{ item = "Hetonite Bottle (Yazhen Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Steel Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
 products = [{ item = "Steel Bottle (Clean Water)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Steel Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+products = [{ item = "Steel Bottle (Cuprium Solution)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Steel Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+products = [{ item = "Steel Bottle (Hetonite Solution)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -226,8 +466,20 @@ products = [{ item = "Steel Bottle (Jincao Solution)", count = 1 }]
 [[recipes]]
 facility = "Filling Unit"
 time_s = 2
+ingredients = [{ item = "Steel Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+products = [{ item = "Steel Bottle (Liquid Heavy Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
 ingredients = [{ item = "Steel Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
 products = [{ item = "Steel Bottle (Liquid Xiranite)", count = 1 }]
+
+[[recipes]]
+facility = "Filling Unit"
+time_s = 2
+ingredients = [{ item = "Steel Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Steel Bottle (Precipitation Acid)", count = 1 }]
 
 [[recipes]]
 facility = "Filling Unit"
@@ -267,9 +519,27 @@ products = [{ item = "Cuprium Part", count = 1 }]
 
 [[recipes]]
 facility = "Fitting Unit"
+time_s = 20
+ingredients = [{ item = "Heavy Xiranite", count = 1 }]
+products = [{ item = "Experimental Heavy Xiranite Part", count = 2 }]
+
+[[recipes]]
+facility = "Fitting Unit"
+time_s = 2
+ingredients = [{ item = "Xiranite", count = 1 }]
+products = [{ item = "Experimental Xiranite Part", count = 1 }]
+
+[[recipes]]
+facility = "Fitting Unit"
 time_s = 2
 ingredients = [{ item = "Ferrium", count = 1 }]
 products = [{ item = "Ferrium Part", count = 1 }]
+
+[[recipes]]
+facility = "Fitting Unit"
+time_s = 10
+ingredients = [{ item = "Hetonite", count = 5 }]
+products = [{ item = "Hetonite Part", count = 1 }]
 
 [[recipes]]
 facility = "Fitting Unit"
@@ -288,6 +558,12 @@ facility = "Forge of the Sky"
 time_s = 2
 ingredients = [{ item = "Burdo-Muck", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
 products = [{ item = "Bumper-Rich", count = 1 }]
+
+[[recipes]]
+facility = "Forge of the Sky"
+time_s = 10
+ingredients = [{ item = "Xiranite", count = 10 }, { item = "Xircon Effluent", count = 5 }]
+products = [{ item = "Heavy Xiranite", count = 1 }]
 
 [[recipes]]
 facility = "Forge of the Sky"
@@ -318,6 +594,12 @@ facility = "Gearing Unit"
 time_s = 10
 ingredients = [{ item = "Origocrust", count = 10 }, { item = "Ferrium", count = 10 }]
 products = [{ item = "Ferrium Component", count = 1 }]
+
+[[recipes]]
+facility = "Gearing Unit"
+time_s = 10
+ingredients = [{ item = "Hetonite Part", count = 2 }, { item = "Heavy Xiranite", count = 2 }]
+products = [{ item = "Hetonite Component", count = 1 }]
 
 [[recipes]]
 facility = "Gearing Unit"
@@ -387,6 +669,18 @@ products = [{ item = "Cuprium Bottle", count = 1 }]
 
 [[recipes]]
 facility = "Moulding Unit"
+time_s = 20
+ingredients = [{ item = "Heavy Xiranite", count = 1 }]
+products = [{ item = "Experimental Heavy Xiranite Bottle", count = 2 }]
+
+[[recipes]]
+facility = "Moulding Unit"
+time_s = 2
+ingredients = [{ item = "Xiranite", count = 2 }]
+products = [{ item = "Experimental Xiranite Bottle", count = 1 }]
+
+[[recipes]]
+facility = "Moulding Unit"
 time_s = 2
 ingredients = [{ item = "Ferrium", count = 2 }]
 products = [{ item = "Ferrium Bottle", count = 1 }]
@@ -394,8 +688,20 @@ products = [{ item = "Ferrium Bottle", count = 1 }]
 [[recipes]]
 facility = "Moulding Unit"
 time_s = 2
+ingredients = [{ item = "Hetonite", count = 2 }]
+products = [{ item = "Hetonite Bottle", count = 1 }]
+
+[[recipes]]
+facility = "Moulding Unit"
+time_s = 2
 ingredients = [{ item = "Steel", count = 2 }]
 products = [{ item = "Steel Bottle", count = 1 }]
+
+[[recipes]]
+facility = "Packaging Unit"
+time_s = 10
+ingredients = [{ item = "Experimental Heavy Xiranite Part", count = 1 }, { item = "Hetonite", count = 1 }]
+products = [{ item = "Experimental Xiran-Hue Atomizer", count = 1 }]
 
 [[recipes]]
 facility = "Packaging Unit"
@@ -448,6 +754,18 @@ products = [{ item = "SC Wuling Battery", count = 1 }]
 [[recipes]]
 facility = "Packaging Unit"
 time_s = 10
+ingredients = [{ item = "Experimental Xiranite Bottle", count = 5 }, { item = "Experimental Xiranite Part", count = 5 }]
+products = [{ item = "Xiranite Gourd", count = 1 }]
+
+[[recipes]]
+facility = "Packaging Unit"
+time_s = 10
+ingredients = [{ item = "Experimental Heavy Xiranite Bottle (Yazhen Solution)", count = 1 }, { item = "Experimental Xiran-Hue Atomizer", count = 1 }]
+products = [{ item = "Xiranite Jade Gourd", count = 1 }]
+
+[[recipes]]
+facility = "Packaging Unit"
+time_s = 10
 ingredients = [{ item = "Cuprium Part", count = 10 }, { item = "Cuprium Bottle (Yazhen Solution)", count = 5 }]
 products = [{ item = "Yazhen Syringe (A)", count = 1 }]
 
@@ -494,10 +812,40 @@ ingredients = [{ item = "Yazhen Seed", count = 1 }, { item = "Clean Water", coun
 products = [{ item = "Yazhen", count = 2 }]
 
 [[recipes]]
+facility = "Purification Unit"
+time_s = 2
+ingredients = [{ item = "Cuprium Solution", count = 4 }]
+products = [{ item = "Hetonite Solution", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+
+[[recipes]]
+facility = "Purification Unit"
+time_s = 2
+ingredients = [{ item = "Inert Xircon Effluent", count = 4 }]
+products = [{ item = "Xircon Effluent", count = 1 }, { item = "Clean Water", count = 1 }]
+
+[[recipes]]
+facility = "Reactor Crucible"
+time_s = 2
+ingredients = [{ item = "Cuprium Powder", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Reactor Crucible"
+time_s = 2
+ingredients = [{ item = "Hetonite Solution", count = 2 }, { item = "Ferrium Powder", count = 1 }]
+products = [{ item = "Hetonite", count = 1 }, { item = "Sewage", count = 1 }]
+
+[[recipes]]
 facility = "Reactor Crucible"
 time_s = 2
 ingredients = [{ item = "Jincao Powder", count = 1 }, { item = "Clean Water", count = 1 }]
 products = [{ item = "Jincao Solution", count = 1 }]
+
+[[recipes]]
+facility = "Reactor Crucible"
+time_s = 2
+ingredients = [{ item = "Heavy Xiranite", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+products = [{ item = "Liquid Heavy Xiranite", count = 1 }]
 
 [[recipes]]
 facility = "Reactor Crucible"
@@ -748,6 +1096,18 @@ products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Clean Water", cou
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Amethyst Bottle (Cuprium Solution)", count = 1 }]
+products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Amethyst Bottle (Hetonite Solution)", count = 1 }]
+products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Amethyst Bottle (Inert Xircon Effluent)", count = 1 }]
 products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
 
@@ -760,8 +1120,20 @@ products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Jincao Solution",
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Amethyst Bottle (Liquid Heavy Xiranite)", count = 1 }]
+products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Amethyst Bottle (Liquid Xiranite)", count = 1 }]
 products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Amethyst Bottle (Precipitation Acid)", count = 1 }]
+products = [{ item = "Amethyst Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
@@ -790,6 +1162,18 @@ products = [{ item = "Cryston Bottle", count = 1 }, { item = "Clean Water", coun
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Cryston Bottle (Cuprium Solution)", count = 1 }]
+products = [{ item = "Cryston Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Cryston Bottle (Hetonite Solution)", count = 1 }]
+products = [{ item = "Cryston Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Cryston Bottle (Inert Xircon Effluent)", count = 1 }]
 products = [{ item = "Cryston Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
 
@@ -802,8 +1186,20 @@ products = [{ item = "Cryston Bottle", count = 1 }, { item = "Jincao Solution", 
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Cryston Bottle (Liquid Heavy Xiranite)", count = 1 }]
+products = [{ item = "Cryston Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Cryston Bottle (Liquid Xiranite)", count = 1 }]
 products = [{ item = "Cryston Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Cryston Bottle (Precipitation Acid)", count = 1 }]
+products = [{ item = "Cryston Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
@@ -832,6 +1228,18 @@ products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Clean Water", coun
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Cuprium Bottle (Cuprium Solution)", count = 1 }]
+products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Cuprium Bottle (Hetonite Solution)", count = 1 }]
+products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Cuprium Bottle (Inert Xircon Effluent)", count = 1 }]
 products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
 
@@ -844,8 +1252,20 @@ products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Jincao Solution", 
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Cuprium Bottle (Liquid Heavy Xiranite)", count = 1 }]
+products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Cuprium Bottle (Liquid Xiranite)", count = 1 }]
 products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Cuprium Bottle (Precipitation Acid)", count = 1 }]
+products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
@@ -867,9 +1287,27 @@ products = [{ item = "Cuprium Bottle", count = 1 }, { item = "Yazhen Solution", 
 
 [[recipes]]
 facility = "Separating Unit"
+time_s = 10
+ingredients = [{ item = "Experimental Heavy Xiranite Bottle (Yazhen Solution)", count = 1 }]
+products = [{ item = "Experimental Heavy Xiranite Bottle", count = 1 }, { item = "Yazhen Solution", count = 5 }]
+
+[[recipes]]
+facility = "Separating Unit"
 time_s = 2
 ingredients = [{ item = "Ferrium Bottle (Clean Water)", count = 1 }]
 products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Ferrium Bottle (Cuprium Solution)", count = 1 }]
+products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Ferrium Bottle (Hetonite Solution)", count = 1 }]
+products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
@@ -886,8 +1324,20 @@ products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Jincao Solution", 
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Ferrium Bottle (Liquid Heavy Xiranite)", count = 1 }]
+products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Ferrium Bottle (Liquid Xiranite)", count = 1 }]
 products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Ferrium Bottle (Precipitation Acid)", count = 1 }]
+products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
@@ -910,8 +1360,86 @@ products = [{ item = "Ferrium Bottle", count = 1 }, { item = "Yazhen Solution", 
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Clean Water)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Cuprium Solution)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Hetonite Solution)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Inert Xircon Effluent)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Inert Xircon Effluent", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Jincao Solution)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Jincao Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Liquid Heavy Xiranite)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Liquid Xiranite)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Precipitation Acid)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Sewage)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Sewage", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Xircon Effluent)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Xircon Effluent", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Hetonite Bottle (Yazhen Solution)", count = 1 }]
+products = [{ item = "Hetonite Bottle", count = 1 }, { item = "Yazhen Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Steel Bottle (Clean Water)", count = 1 }]
 products = [{ item = "Steel Bottle", count = 1 }, { item = "Clean Water", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Steel Bottle (Cuprium Solution)", count = 1 }]
+products = [{ item = "Steel Bottle", count = 1 }, { item = "Cuprium Solution", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Steel Bottle (Hetonite Solution)", count = 1 }]
+products = [{ item = "Steel Bottle", count = 1 }, { item = "Hetonite Solution", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
@@ -928,8 +1456,20 @@ products = [{ item = "Steel Bottle", count = 1 }, { item = "Jincao Solution", co
 [[recipes]]
 facility = "Separating Unit"
 time_s = 2
+ingredients = [{ item = "Steel Bottle (Liquid Heavy Xiranite)", count = 1 }]
+products = [{ item = "Steel Bottle", count = 1 }, { item = "Liquid Heavy Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
 ingredients = [{ item = "Steel Bottle (Liquid Xiranite)", count = 1 }]
 products = [{ item = "Steel Bottle", count = 1 }, { item = "Liquid Xiranite", count = 1 }]
+
+[[recipes]]
+facility = "Separating Unit"
+time_s = 2
+ingredients = [{ item = "Steel Bottle (Precipitation Acid)", count = 1 }]
+products = [{ item = "Steel Bottle", count = 1 }, { item = "Precipitation Acid", count = 1 }]
 
 [[recipes]]
 facility = "Separating Unit"
