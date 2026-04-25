@@ -56,13 +56,13 @@ jobs:
       - name: Cache Rust artifacts
         uses: Swatinem/rust-cache@v2
 
-      - name: Install cargo-make and cargo-nextest
+      - name: Install just and cargo-nextest
         uses: taiki-e/install-action@v2
         with:
-          tool: cargo-make,cargo-nextest
+          tool: just,cargo-nextest
 
       - name: Run project checks
-        run: cargo make done
+        run: just done
 
   tauri-desktop:
     name: Tauri Desktop ${{ matrix.platform }}
